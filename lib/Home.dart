@@ -1,5 +1,7 @@
 import 'package:banner_carousel/banner_carousel.dart';
 import 'package:farmacia_social/widgets/custom_card.dart';
+import 'package:farmacia_social/widgets/mobile_app_bar.dart';
+import 'package:farmacia_social/widgets/web_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:outline_search_bar/outline_search_bar.dart';
@@ -106,8 +108,14 @@ class _HomeState extends State<Home> {
           var alturaBarra = AppBar().preferredSize.height;
 
           return Scaffold(
-            appBar: AppBar(
-              title: Text("Farmácia Social"),
+            appBar: largura <600
+            ? PreferredSize(
+                child: MobileAppBar(),
+                preferredSize: Size(largura,alturaBarra)
+            )
+                :PreferredSize(
+                child: WebAppBar(),
+                preferredSize: Size(largura,alturaBarra)
             ),
             body: Container(
               padding: EdgeInsets.all(16),
