@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "939535084742",
+    "project_id": "farmacia-social-8b466",
+    "storage_bucket": "farmacia-social-8b466.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939535084742:android:dec7f787c20beffaafbbc7",
+        "android_client_info": {
+          "package_name": "com.xXFalcoonXx.farmacia_social"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939535084742-d34gcekqm4tlt555oshop3s3le9aeaer.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDo50APyelCEFj3t1zEpM9_P29Kln5KudE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939535084742-d34gcekqm4tlt555oshop3s3le9aeaer.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
