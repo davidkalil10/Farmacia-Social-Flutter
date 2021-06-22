@@ -1,4 +1,5 @@
 import 'package:banner_carousel/banner_carousel.dart';
+import 'package:farmacia_social/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:outline_search_bar/outline_search_bar.dart';
@@ -83,60 +84,82 @@ class _HomeState extends State<Home> {
 
   TextEditingController _searchController = TextEditingController();
 
+  _ajustarVisualizacao(double larguraTela){
+
+    int colunas = 1;
+    if (larguraTela <=600){
+      colunas = 1;
+    } else if (larguraTela <= 960){
+      colunas = 2;
+    }else {
+      colunas = 4;
+    }
+    return colunas;
+
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Farmácia Social"),
-      ),
-      body: Container(
-        padding: EdgeInsets.all(16),
-        child: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                /*CarouselSlider(
-                    items: imgList.map((item) => Container(
-                      child: Center(
-                        child: Image.network(item, fit: BoxFit.fitWidth,),
-                      ),
-                    )).toList(),
-                    options: CarouselOptions(
-                      aspectRatio: 2.0,
-                      enlargeCenterPage: true,
-                      scrollDirection: Axis.horizontal,
-                      enlargeStrategy: CenterPageEnlargeStrategy.height,
-                      autoPlay: false
-                    )
-                ),*/
-                BannerCarousel(
-                  banners: listBanners,
-                  height: 200,
-                  width: 100,
-                  borderRadius: 10,
-                  activeColor: Colors.amberAccent,
-                  indicatorBottom: false,
-                  margin: EdgeInsets.only(top: 0,left: 0,right: 0,bottom: 20),
-                  //spaceBetween: 5,
-                ),
-                OutlineSearchBar(
-                  textEditingController: _searchController,
-                  elevation: 2,
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  borderColor: Color(0xff2a9d8f),
-                  cursorColor: Colors.grey,
-                  searchButtonIconColor: Color(0xff2a9d8f), //f4a261
-                  hintText: "Digite sua busca",
-                  onSearchButtonPressed: (busca){},
-                  onClearButtonPressed: (busca){},
-                ),
-                Text("Aqui vem o Card")
-              ],
+    return LayoutBuilder(
+        builder: (_,constraints){
+          var largura = constraints.maxWidth;
+          var alturaBarra = AppBar().preferredSize.height;
+
+          return Scaffold(
+            appBar: AppBar(
+              title: Text("Farmácia Social"),
             ),
-          ),
-        ),
-      ),
+            body: Container(
+              padding: EdgeInsets.all(16),
+              child: Center(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      BannerCarousel(
+                        banners: listBanners,
+                        height: 200,
+                        width: 100,
+                        borderRadius: 10,
+                        activeColor: Colors.amberAccent,
+                        indicatorBottom: false,
+                        margin: EdgeInsets.only(top: 0,left: 0,right: 0,bottom: 20),
+                        //spaceBetween: 5,
+                      ),
+                      OutlineSearchBar(
+                        textEditingController: _searchController,
+                        elevation: 2,
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderColor: Color(0xff2a9d8f),
+                        cursorColor: Colors.grey,
+                        searchButtonIconColor: Color(0xff2a9d8f), //f4a261
+                        hintText: "Digite sua busca",
+                        onSearchButtonPressed: (busca){},
+                        onClearButtonPressed: (busca){},
+                      ),
+                      SizedBox(height: 20,),
+                      GridView.count(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        crossAxisCount: _ajustarVisualizacao(largura),
+                         crossAxisSpacing: 8,
+                         mainAxisSpacing: 8,
+                        children: [
+                          CustomCard(),
+                          CustomCard(),
+                          CustomCard(),
+                          CustomCard(),
+                          CustomCard(),
+                          CustomCard(),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          );
+        }
     );
   }
 }
