@@ -77,11 +77,13 @@ class CustomCard extends StatelessWidget {
             flex: 15,
             child: Padding(
               padding: EdgeInsets.only(left: 20,right: 20),
-              child: Text(
-                "comecoasdsadasdjhsajhdhsajdhskajhdhsajdhskdjhkshdjkswwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
-                style: TextStyle(fontSize: 15),
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis
+              child: Center(
+                child: Text(
+                    "comecoasdsadasdjhsajhdhsajdhskajhdhsajdhskdjhkshdjkswwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+                    style: TextStyle(fontSize: 15),
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis
+                ),
               ),
             ),
           ),
