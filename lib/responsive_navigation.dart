@@ -1,5 +1,8 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:farmacia_social/Home.dart';
+import 'package:farmacia_social/screens/Home.dart';
+import 'package:farmacia_social/screens/Contato.dart';
+import 'package:farmacia_social/screens/Duvidas.dart';
+import 'package:farmacia_social/screens/Meu_Perfil.dart';
 import 'package:farmacia_social/widgets/ExtendableFab.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -29,33 +32,18 @@ class _ResponsiveNavigationState extends State<ResponsiveNavigation> {
     print("doar");
   }
 
-  _ajustarVisualizacao(double larguraTela) {
-    int colunas = 1;
-    if (larguraTela <= 600) {
-      /*     setState(() {
-        _isDesktop = false;
-      });*/
-      colunas = 1;
-    } else if (larguraTela <= 960) {
-      /*  setState(() {
-        _isDesktop = true;
-      });*/
-      colunas = 2;
-    } else {
-      /*    setState(() {
-        _isDesktop = true;
-      });*/
-      colunas = 4;
-    }
-    return colunas;
-  }
+
+  List<Widget> _telas = [
+    Home(),
+    Duvidas(),
+    Contato(),
+    MeuPerfil()
+  ];
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (_, constraints) {
       var largura = constraints.maxWidth;
-      var alturaBarra = AppBar().preferredSize.height;
-      double alturaBanner = largura < 960 ? 200 : 350;
       largura < 600 ? _isDesktop = false : _isDesktop = true;
 
       return _isDesktop
@@ -133,7 +121,7 @@ class _ResponsiveNavigationState extends State<ResponsiveNavigation> {
             const VerticalDivider(thickness: 1, width: 1),
             // This is the main content.
             Expanded(
-              child: Home(),
+              child: _telas[_selectedIndex],
             )
           ],
         ),
@@ -143,7 +131,7 @@ class _ResponsiveNavigationState extends State<ResponsiveNavigation> {
       /*  body: Center(
           child: Text('selectedIndex: $_selectedIndex'),
         ), */
-        body: Home(),
+        body: _telas[_selectedIndex],
         floatingActionButton: FloatingActionButton(
           backgroundColor: Color(0xffF9AA33),
           child: FaIcon(
