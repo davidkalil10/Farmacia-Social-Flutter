@@ -52,14 +52,14 @@ class CustomCard extends StatelessWidget {
                 children: [
                   Text(
                     "Título",
-                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
                     height: 25,
                     width: 35,
                     child: Container(
                       decoration: BoxDecoration(
-                          color: Colors.red,
+                          color: Colors.redAccent,
                           borderRadius: BorderRadius.all(Radius.circular(5))
                       ),
                     ),

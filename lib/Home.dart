@@ -106,9 +106,10 @@ class _HomeState extends State<Home> {
         builder: (_,constraints){
           var largura = constraints.maxWidth;
           var alturaBarra = AppBar().preferredSize.height;
+          double alturaBanner = largura <960? 200:350;
 
           return Scaffold(
-            appBar: largura <600
+            appBar: largura <960
             ? PreferredSize(
                 child: MobileAppBar(),
                 preferredSize: Size(largura,alturaBarra)
@@ -125,8 +126,9 @@ class _HomeState extends State<Home> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       BannerCarousel(
+                        animation: true,
                         banners: listBanners,
-                        height: 200,
+                        height: alturaBanner,
                         width: 100,
                         borderRadius: 10,
                         activeColor: Colors.amberAccent,
