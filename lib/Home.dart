@@ -109,7 +109,7 @@ class _HomeState extends State<Home> {
           double alturaBanner = largura <960? 200:350;
 
           return Scaffold(
-            appBar: largura <960
+       /*     appBar: largura <960
             ? PreferredSize(
                 child: MobileAppBar(),
                 preferredSize: Size(largura,alturaBarra)
@@ -117,7 +117,7 @@ class _HomeState extends State<Home> {
                 :PreferredSize(
                 child: WebAppBar(),
                 preferredSize: Size(largura,alturaBarra)
-            ),
+            ),*/
             body: Container(
               padding: EdgeInsets.all(16),
               child: Center(

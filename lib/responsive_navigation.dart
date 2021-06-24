@@ -1,4 +1,5 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:farmacia_social/Home.dart';
 import 'package:farmacia_social/widgets/ExtendableFab.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -132,18 +133,17 @@ class _ResponsiveNavigationState extends State<ResponsiveNavigation> {
             const VerticalDivider(thickness: 1, width: 1),
             // This is the main content.
             Expanded(
-              child: Center(
-                child: Text('selectedIndex: $_selectedIndex'),
-              ),
+              child: Home(),
             )
           ],
         ),
       )
       :Scaffold(
         backgroundColor: Color(0xffEEF0F2),
-        body: Center(
+      /*  body: Center(
           child: Text('selectedIndex: $_selectedIndex'),
-        ),
+        ), */
+        body: Home(),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Color(0xffF9AA33),
           child: FaIcon(
