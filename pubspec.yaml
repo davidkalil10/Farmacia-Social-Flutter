@@ -37,6 +37,9 @@ dependencies:
   banner_carousel: ^1.1.0
   outline_search_bar: ^2.2.0
   flutter_scale_tap: ^1.0.5
+  adaptive_breakpoints: ^0.0.4
+  animations: ^2.0.0
+  animated_bottom_navigation_bar: ^0.3.2
 
 dev_dependencies:
   flutter_test:
@@ -61,6 +64,7 @@ flutter:
   assets:
     - assets/remedio.jpg
     - assets/logo.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
