@@ -119,7 +119,7 @@ class _HomeState extends State<Home> {
                 preferredSize: Size(largura,alturaBarra)
             ),*/
             body: Container(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.fromLTRB(16, (16 + alturaBarra), 16, 16),
               child: Center(
                 child: SingleChildScrollView(
                   child: Column(
